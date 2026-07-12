@@ -25,6 +25,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: "Roboto", sans-serif;
     background: linear-gradient(180deg, #000, #090909 35%, #111);
@@ -35,10 +36,12 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
+
 .mobile-container {
     width: 100%;
     max-width: 420px;
 }
+
 .card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -48,15 +51,18 @@ body {
         var(--shadow),
         0 0 20px rgba(255, 210, 0, 0.05);
 }
+
 .codm-logo {
     display: block;
     width: 100%;
     background: #000;
     border-bottom: 2px solid var(--gold);
 }
+
 .header {
     padding: 26px 24px 4px;
 }
+
 h1 {
     font-family: "Oswald", sans-serif;
     text-transform: uppercase;
@@ -64,12 +70,14 @@ h1 {
     font-size: 40px;
     text-align: center;
 }
+
 .subtitle {
     text-align: center;
     color: var(--text-muted);
     font-size: 15px;
     margin-top: 8px;
 }
+
 .last-updated {
     margin: 20px 24px;
     padding: 12px;
@@ -79,75 +87,50 @@ h1 {
     text-align: center;
     color: var(--text-muted);
 }
+
 .last-updated strong {
     color: var(--gold);
 }
 
-/* ==========================================================
-   INTRO BOX
-========================================================== */
-
-.intro-box{
-
-    margin:24px;
-
-    background:var(--surface);
-
-    border:1px solid var(--border);
-
-    border-left:4px solid var(--gold);
-
-    border-radius:14px;
-
-    padding:20px;
-
+.intro-box {
+    margin: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 14px;
+    padding: 20px;
 }
 
-.intro-box h2{
-
-    color:var(--gold);
-
-    font-family:'Oswald',sans-serif;
-
-    margin-bottom:14px;
-
+.intro-box h2 {
+    color: var(--gold);
+    font-family: "Oswald", sans-serif;
+    margin-bottom: 14px;
 }
 
-.intro-box p{
-
-    color:var(--text-secondary);
-
-    line-height:1.7;
-
+.intro-box p {
+    color: var(--text-secondary);
+    line-height: 1.7;
 }
 
-.intro-box ul{
-
-    margin:16px 0;
-
-    padding-left:22px;
-
+.intro-box ul {
+    margin: 16px 0;
+    padding-left: 22px;
 }
 
-.intro-box li{
-
-    margin-bottom:16px;
-
-    color:var(--text-primary);
-
-    line-height:1.7;
-
+.intro-box li {
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    line-height: 1.7;
 }
 
-.intro-box li strong{
-
-    color:var(--gold);
-
+.intro-box li strong {
+    color: var(--gold);
 }
 
 #linksContainer {
     padding: 0 24px;
 }
+
 .link-box {
     background: var(--surface-2);
     border: 1px solid var(--border-light);
@@ -156,15 +139,18 @@ h1 {
     margin-bottom: 18px;
     transition: 0.25s;
 }
+
 .link-box:hover {
     border-color: var(--gold);
     transform: translateY(-2px);
 }
+
 .link-title {
     font-family: "Oswald", sans-serif;
     font-size: 24px;
     margin-bottom: 12px;
 }
+
 .link {
     background: #0b0b0b;
     border: 1px solid var(--border);
@@ -174,6 +160,7 @@ h1 {
     margin-bottom: 14px;
     word-break: break-word;
 }
+
 button {
     width: 100%;
     border: none;
@@ -186,12 +173,48 @@ button {
     cursor: pointer;
     transition: 0.2s;
 }
+
 button:hover {
     background: var(--gold-hover);
 }
+
 button:active {
     transform: scale(0.98);
 }
+
+/* Visual state applied when JavaScript signals active time tracking is locked */
+button.btn-locked {
+    background: #2a2a2a;
+    color: #888888;
+    border: 1px solid var(--border);
+    cursor: not-allowed;
+}
+
+button.btn-locked:hover {
+    background: #2a2a2a;
+}
+
+/* Secure Video Aspect Ratio Container fixes for API rendering windows */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Fixed 16:9 Aspect Ratio setup */
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 14px 0;
+    border: 1px solid var(--border);
+}
+
+.video-container div, 
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .loading-box,
 .disclaimer,
 .server-closed,
@@ -201,12 +224,14 @@ button:active {
     border-radius: 14px;
     line-height: 1.7;
 }
+
 .loading-box {
     margin: 0;
     background: var(--surface-2);
     border: 1px solid var(--border);
     text-align: center;
 }
+
 .loader {
     width: 42px;
     height: 42px;
@@ -216,33 +241,41 @@ button:active {
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
+
 .loading-box p {
     color: var(--text-muted);
 }
+
 .disclaimer {
     background: var(--surface-2);
     border: 1px solid var(--border);
     color: #d0d0d0;
     font-size: 13px;
 }
+
 .disclaimer h2 {
     font-family: "Oswald", sans-serif;
     color: var(--gold);
     margin-bottom: 10px;
 }
+
 .disclaimer p:not(:last-child) {
     margin-bottom: 12px;
 }
+
 .server-closed {
     margin: 0 0 20px;
     background: var(--surface-2);
     border: 2px solid var(--warning);
     text-align: center;
+    animation: pulse 1.5s infinite;
 }
+
 .server-closed h2 {
     color: var(--warning);
     margin-bottom: 10px;
 }
+
 .load-error {
     margin: 0;
     background: #350c0c;
@@ -250,25 +283,58 @@ button:active {
     text-align: center;
     animation: pulse 1.5s infinite;
 }
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    color: var(--gold);
+    font-family: "Oswald", sans-serif;
+    font-size: 38px;
+    margin-bottom: 28px;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 25px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 999px;
+}
+
+/* Site Logo Layout - Centered horizontally inside card flex */
+.site-logo {
+    display: block;
+    margin: 30px auto 10px auto;
+    max-width: 60px;
+    height: auto;
+}
+
 .footer {
     margin: 24px;
     text-align: center;
     color: #8b8b8b;
     font-size: 13px;
 }
+
 .footer a {
     color: var(--gold);
     text-decoration: none;
 }
+
 .footer a:hover {
     color: #fff;
     text-decoration: underline;
 }
+
 @keyframes spin {
     to {
         transform: rotate(360deg);
     }
 }
+
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 rgba(239, 68, 68, 0.3);
@@ -280,6 +346,7 @@ button:active {
         box-shadow: 0 0 0 rgba(239, 68, 68, 0.3);
     }
 }
+
 @media (max-width: 480px) {
     h1 {
         font-size: 36px;
@@ -288,4 +355,3 @@ button:active {
         font-size: 22px;
     }
 }
-
