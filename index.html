@@ -89,14 +89,16 @@
             <div class="verify-box">
               <h2>Verification Required</h2>
               <p class="verify-text">
-                To keep our links secure and verify you're not an automated bot, please enter the verification code and watch the video for at least 1 minute. We've added this step because codes frequently get shared externally, and this ensures fair access for real players. Thank you for your understanding!
+                To keep our links secure and verify you're not an automated bot, please enter the verification code and watch the video below for at least 1 minute. We've added this step because codes frequently get shared externally, and this ensures fair access for real players. Thank you for your understanding!
               </p>
               <input type="text" id="verifyCode" placeholder="Enter verification code" />
               
+              <!-- Dynamically points to notARobot.codeSource in JavaScript -->
               <a id="videoSource" target="_blank">
                 <i class="fa-regular fa-circle-play"></i> Watch Video to Find the Code
               </a>
 
+              <!-- Dynamically tracks notARobot.watchSource embedded iframe inside here -->
               <div class="video-container">
                 <div id="videoEmbed"></div>  
               </div>

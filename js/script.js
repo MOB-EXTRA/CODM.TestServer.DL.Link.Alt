@@ -89,10 +89,11 @@ function showVerification() {
         return;
     }
 
-    document.getElementById("videoSource").href = notARobot.source;
+    // Assign the code source link to the anchor button redirect target
+    document.getElementById("videoSource").href = notARobot.codeSource;
 
     let videoId = "";
-    let embedUrl = notARobot.source;
+    let embedUrl = notARobot.watchSource; // Parse the embedded watch validation video link instead
 
     if (embedUrl.includes("youtu.be/")) {
         videoId = embedUrl.split("youtu.be/")[1].split("?")[0];
@@ -130,7 +131,6 @@ function createYTPlayer(videoId) {
         events: {
             'onStateChange': onPlayerStateChange,
             'onReady': function(e) {
-                // Fix for local webview permissions policy violations
                 const iframe = document.getElementById('videoEmbed');
                 if (iframe) {
                     iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
@@ -171,8 +171,10 @@ function updateButtonTimer() {
 
     if (secondsWatched < REQUIRED_WATCH_TIME) {
         const remaining = REQUIRED_WATCH_TIME - secondsWatched;
+        unlockBtn.classList.add("btn-locked");
         unlockBtn.innerHTML = `<i class="fa-solid fa-clock"></i> Watch Video (${remaining}s remaining)`;
     } else {
+        unlockBtn.classList.remove("btn-locked");
         unlockBtn.innerHTML = `<i class="fa-solid fa-lock-open"></i> Unlock Links Now`;
     }
 }
@@ -182,7 +184,7 @@ function unlockLinks() {
 
     if (secondsWatched < REQUIRED_WATCH_TIME) {
         const remaining = REQUIRED_WATCH_TIME - secondsWatched;
-        alert(`Verification Protection: Please finish watching the video first. You need ${remaining} more seconds.`);
+        alert(`Verification Protection: Please finish watching the embed video first. You need ${remaining} more seconds.`);
         return;
     }
 
@@ -308,7 +310,6 @@ function initFeaturedPlayers() {
             },
             events: {
                 'onReady': function(e) {
-                    // Safe attribute injector to shut up console policy errors
                     const iframe = document.getElementById(elementId);
                     if (iframe) {
                         iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
