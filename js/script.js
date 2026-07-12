@@ -1,9 +1,16 @@
 // Global tracking variables for the YouTube Player integration
 let ytPlayer; // Verification player
 let featuredPlayers = []; // Array to hold multiple featured video players
-let watchTimer;
-let secondsWatched = 0;
-const REQUIRED_WATCH_TIME = 60; // Forced 1-minute (60 seconds) watch time threshold
+
+// 1. SINGLE Global entry point for the YouTube Iframe API
+window.onYouTubeIframeAPIReady = function() {
+    // Check if verification video needs to be built
+    if (typeof notARobot !== "undefined" && document.getElementById("verifyOverlay").style.display === "flex") {
+        setupVerificationVideoId();
+    }
+    // Initialize featured videos immediately when API is ready
+    initFeaturedPlayers();
+};
 
 // Dynamically load the official YouTube Iframe API script
 (function() {
@@ -85,15 +92,23 @@ function copyLink(id, button) {
 }
 
 function showVerification() {
-    if (typeof notARobot === "undefined") {
-        return;
-    }
+    if (typeof notARobot === "undefined") return;
 
-    // Assign the code source link to the anchor button redirect target
     document.getElementById("videoSource").href = notARobot.codeSource;
+    document.getElementById("verifyOverlay").style.display = "flex";
+    updateButtonStatus();
+
+    // If the YT library is already available, load the player directly
+    if (window.YT && window.YT.Player) {
+        setupVerificationVideoId();
+    }
+}
+
+function setupVerificationVideoId() {
+    if (ytPlayer) return; // Prevent duplicating player instances
 
     let videoId = "";
-    let embedUrl = notARobot.watchSource; // Parse the embedded watch validation video link instead
+    let embedUrl = notARobot.codeSource; // Matches the link source perfectly
 
     if (embedUrl.includes("youtu.be/")) {
         videoId = embedUrl.split("youtu.be/")[1].split("?")[0];
@@ -101,18 +116,7 @@ function showVerification() {
         videoId = embedUrl.split("watch?v=")[1].split("&")[0];
     }
 
-    if (window.YT && window.YT.Player) {
-        createYTPlayer(videoId);
-    } else {
-        const existingCallback = window.onYouTubeIframeAPIReady;
-        window.onYouTubeIframeAPIReady = () => {
-            if (existingCallback) existingCallback();
-            createYTPlayer(videoId);
-        };
-    }
-
-    document.getElementById("verifyOverlay").style.display = "flex";
-    updateButtonTimer();
+    createYTPlayer(videoId);
 }
 
 function createYTPlayer(videoId) {
@@ -129,7 +133,6 @@ function createYTPlayer(videoId) {
             'rel': 0
         },
         events: {
-            'onStateChange': onPlayerStateChange,
             'onReady': function(e) {
                 const iframe = document.getElementById('videoEmbed');
                 if (iframe) {
@@ -140,53 +143,18 @@ function createYTPlayer(videoId) {
     });
 }
 
-function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-        startTrackingTime();
-    } else {
-        stopTrackingTime();
-    }
-}
-
-function startTrackingTime() {
-    if (watchTimer) return;
-    watchTimer = setInterval(() => {
-        secondsWatched++;
-        updateButtonTimer();
-        
-        if (secondsWatched >= REQUIRED_WATCH_TIME) {
-            stopTrackingTime();
-        }
-    }, 1000);
-}
-
-function stopTrackingTime() {
-    clearInterval(watchTimer);
-    watchTimer = null;
-}
-
-function updateButtonTimer() {
+function updateButtonStatus() {
     const unlockBtn = document.getElementById("unlockButton");
     if (!unlockBtn) return;
 
-    if (secondsWatched < REQUIRED_WATCH_TIME) {
-        const remaining = REQUIRED_WATCH_TIME - secondsWatched;
-        unlockBtn.classList.add("btn-locked");
-        unlockBtn.innerHTML = `<i class="fa-solid fa-clock"></i> Watch Video (${remaining}s remaining)`;
-    } else {
-        unlockBtn.classList.remove("btn-locked");
-        unlockBtn.innerHTML = `<i class="fa-solid fa-lock-open"></i> Unlock Links Now`;
-    }
+    // Instantly unlocked and clickable without requiring a video watch duration
+    unlockBtn.classList.remove("btn-locked");
+    unlockBtn.innerHTML = `<i class="fa-solid fa-user-check"></i> Verify & Access Downloads`;
+    unlockBtn.disabled = false;
 }
 
 function unlockLinks() {
     const code = document.getElementById("verifyCode").value.trim();
-
-    if (secondsWatched < REQUIRED_WATCH_TIME) {
-        const remaining = REQUIRED_WATCH_TIME - secondsWatched;
-        alert(`Verification Protection: Please finish watching the embed video first. You need ${remaining} more seconds.`);
-        return;
-    }
 
     if (code === "") {
         alert("Please enter the verification code.");
@@ -198,7 +166,6 @@ function unlockLinks() {
         return;
     }
 
-    stopTrackingTime();
     document.getElementById("verifyOverlay").style.display = "none";
 }
 
@@ -279,18 +246,15 @@ function loadFeaturedVideos() {
     html += `</div>`;
     section.innerHTML = html;
 
+    // Direct initialization invocation if API loaded ahead of the DOM structure
     if (window.YT && window.YT.Player) {
         initFeaturedPlayers();
-    } else {
-        const existingCallback = window.onYouTubeIframeAPIReady;
-        window.onYouTubeIframeAPIReady = () => {
-            if (existingCallback) existingCallback();
-            initFeaturedPlayers();
-        };
     }
 }
 
 function initFeaturedPlayers() {
+    if (featuredPlayers.length > 0) return; // Prevent duplicating featured content instances
+
     featuredVideos.forEach((video, index) => {
         const elementId = `featuredPlayer_${index}`;
         const targetElement = document.getElementById(elementId);
@@ -326,6 +290,7 @@ window.addEventListener("load", () => {
     waitForData();
     loadFeaturedVideos();
 
+    // Assign event listeners cleanly via addEventListener
     document.getElementById("unlockButton").addEventListener("click", unlockLinks);
     
     document.getElementById("verifyCode").addEventListener("keydown", function(e) {

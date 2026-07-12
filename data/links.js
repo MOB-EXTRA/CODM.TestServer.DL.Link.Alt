@@ -3,7 +3,7 @@ const testServerData = {
     // 1 = Open | 0 = Closed
     status: 1, 
 
-    lastUpdated: "July 12, 2026",
+    lastUpdated: "Jun 13, 2026",
 
     links: [
         {
