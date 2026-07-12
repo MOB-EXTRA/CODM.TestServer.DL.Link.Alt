@@ -1,179 +1,119 @@
 /* ==========================================================
-   LINKS WRAPPER
+   1. LINKS WRAPPER
 ========================================================== */
-
 .links-wrapper {
     position: relative;
 }
 
 /* ==========================================================
-   VERIFICATION OVERLAY
+   2. VERIFICATION OVERLAY
 ========================================================== */
-
 .verify-overlay {
     position: absolute;
     inset: 0;
-
     display: none;
-
     justify-content: center;
     align-items: center;
-
     padding: 20px;
-
-    border-radius: 14px;
-
+    border-radius: var(--radius-md);
     z-index: 20;
 
     /* Fallback for browsers without backdrop-filter */
-    background: rgba(8, 8, 8, 0.1);
+    background: rgba(8, 8, 8, 0.10);
 
     /* Frosted glass effect */
-    backdrop-filter: blur(1px) brightness(0.85);
-    -webkit-backdrop-filter: blur(1px) brightness(0.85);
+    backdrop-filter: blur(2px) brightness(0.85);
+    -webkit-backdrop-filter: blur(2px) brightness(0.85);
 }
 
 /* ==========================================================
-   VERIFICATION BOX
+   3. VERIFICATION BOX HULL
 ========================================================== */
-
 .verify-box {
     width: 100%;
-
     max-width: 340px;
-
     background: rgba(27, 27, 27, 0.7);
-
     border: 1px solid var(--gold);
-
-    border-radius: 16px;
-
+    border-radius: var(--radius);
     padding: 24px;
-
     text-align: center;
-
     box-shadow: 0 0 25px rgba(255, 210, 0, 0.18);
 }
 
-/* ==========================================================
-   TITLE
-========================================================== */
-
 .verify-box h2 {
     font-family: "Oswald", sans-serif;
-
     color: var(--gold);
-
     font-size: 24px;
-
     margin-bottom: 16px;
 }
 
-/* ==========================================================
-   DESCRIPTION
-========================================================== */
-
 .verify-text {
-    color: #d5d5d5;
-
+    color: var(--text-muted);
     font-size: 14px;
-
     line-height: 1.7;
-
     margin-bottom: 20px;
 }
 
 /* ==========================================================
-   INPUT
+   4. CODE VERIFICATION INPUT BOX
 ========================================================== */
-
 #verifyCode {
     width: 100%;
-
     padding: 12px;
-    
     text-align: center;
-
-    border-radius: 10px;
-
-    border: 1px solid #444;
-
-    background: #101010;
-
-    color: #ffffff;
-
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    background: var(--bg);
+    color: var(--text);
     font-size: 15px;
-
     margin-bottom: 16px;
-
     transition: 0.2s;
 }
 
 #verifyCode:focus {
     outline: none;
-
     border-color: var(--gold);
-
     box-shadow: 0 0 10px rgba(255, 210, 0, 0.25);
 }
 
 /* ==========================================================
-   VIDEO LINK
+   5. ANCHOR SOURCE LINK & VIDEO CONTAINER
 ========================================================== */
-
 #videoSource {
     display: block;
-
     margin-bottom: 18px;
-
     color: var(--link);
-    
     font-style: italic;
     text-decoration: underline;
-
     font-weight: bold;
-
     transition: 0.2s;
 }
 
 #videoSource:hover {
-    color: var(--gold);
-
+    color: var(--gold-hover);
     text-decoration: underline;
 }
 
-/* ==========================================================
-   EMBEDDED VIDEO
-========================================================== */
-
 .video-container {
     width: 100%;
-
     margin-bottom: 18px;
-
-    border-radius: 12px;
-
+    border-radius: var(--radius-sm);
     overflow: hidden;
-
-    border: 1px solid rgba(255, 210, 0, 0.25);
-
-    background: #000;
+    border: 1px solid var(--border);
+    background: var(--bg-dark);
 }
 
 .video-container iframe {
     display: block;
-
     width: 100%;
-
     aspect-ratio: 16 / 9;
-
     border: 0;
 }
 
 /* ==========================================================
-   BUTTON
+   6. INTERACTIVE ACTION ACTIONS
 ========================================================== */
-
 #unlockButton {
     width: 100%;
 }
+

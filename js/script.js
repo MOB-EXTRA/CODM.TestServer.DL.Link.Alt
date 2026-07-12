@@ -147,7 +147,7 @@ function updateButtonStatus() {
     const unlockBtn = document.getElementById("unlockButton");
     if (!unlockBtn) return;
 
-    // Instantly unlocked and clickable without requiring a video watch duration
+    // Instantly active and styled to match labels
     unlockBtn.classList.remove("btn-locked");
     unlockBtn.innerHTML = `<i class="fa-solid fa-user-check"></i> Verify & Access Downloads`;
     unlockBtn.disabled = false;
@@ -298,4 +298,31 @@ window.addEventListener("load", () => {
             unlockLinks();
         }
     });
+
+    // Native Multi-Platform Universal Sharing Logic
+    const shareBtn = document.getElementById("shareSiteBtn");
+    if (shareBtn) {
+        shareBtn.addEventListener("click", () => {
+            const shareData = {
+                title: 'CODM Test Server Download Links | MOB EXTRA',
+                text: 'Get instant access to the latest official Call of Duty: Mobile Test Server download links!',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData)
+                    .catch((err) => console.log('Error sharing:', err));
+            } else {
+                navigator.clipboard.writeText(window.location.href)
+                    .then(() => {
+                        const originalText = shareBtn.innerHTML;
+                        shareBtn.innerHTML = `<i class="fa-solid fa-check"></i> Link Copied!`;
+                        setTimeout(() => { shareBtn.innerHTML = originalText; }, 2000);
+                    })
+                    .catch(() => {
+                        alert("Could not copy link automatically. Please copy the URL from your address bar!");
+                    });
+            }
+        });
+    }
 });
