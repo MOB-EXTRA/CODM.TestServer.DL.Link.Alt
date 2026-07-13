@@ -466,29 +466,85 @@ button.btn-locked:hover {
 /* Individual logo adjustments */
 .site-logo {
     display: block;          /* Removes any default inline whitespace gaps */
-    max-width: 60px;
+    max-width: 20px;
     height: auto;
+    margin: 30px auto 10px auto;
     background-color: var( --gold);
     border-radius: 50%;
 }
 
-
-.footer {
-    margin: 24px;
-    text-align: center;
-    color: #8b8b8b;
-    font-size: 13px;
+.logo-group a:nth-child(2) .site-logo {
+    max-width: 35px; 
 }
 
-.footer a {
+.logo-group a {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+/* Subtle hover effect to show mobile users the logos are clickable */
+.logo-group a:hover {
+    transform: scale(1.08);
+}
+
+.site-footer {
+    margin: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border); /* Visual separation border above footer */
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Legal and support utility nav rows styling */
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-nav-item {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav-item:hover {
+    color: var(--text);
+}
+
+.footer-divider {
+    color: var(--border-light);
+    margin: 0 6px;
+}
+
+/* Core platform copyright labels */
+.footer-copyright {
+    color: #6a6a6a;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.brand-text {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Creator attribution text blocks styling */
+.footer-powered {
+    color: #8b8b8b;
+    font-size: 12px;
+}
+
+.credit-link {
     color: var(--gold);
     text-decoration: none;
 }
 
-.footer a:hover {
+.credit-link:hover {
     color: var(--text);
     text-decoration: underline;
 }
+
 
 /* ==========================================================================
    9. CSS KEYFRAME ANIMATIONS

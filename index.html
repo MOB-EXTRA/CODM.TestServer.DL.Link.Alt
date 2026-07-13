@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- ==========================================
+       1. META TAGS & SEO PARAMETERS
+       ========================================== -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
@@ -10,31 +13,43 @@
     <meta name="author" content="Vile Tempest" />
     <meta name="robots" content="index, follow" />
 
+    <!-- Open Graph Previews (Social Media Cards) -->
     <meta property="og:title" content="CODM Test Server Download Hub | MOB EXTRA" />
     <meta property="og:description" content="Quick, direct access to official public build builds for iOS and Android platforms." />
     <meta property="og:image" content="assets/images/favicon.png" />
     <meta property="og:type" content="website" />
     
+    <!-- ==========================================
+       2. EXTERNAL RESOURCE STYLESHEETS
+       ========================================== -->
     <link rel="icon" href="assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="assets/fontawesome-free-7.3.0-web/css/all.min.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-7.3.0-web/css/all.min.css" />
     
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/notarobot.css" />
     <link rel="stylesheet" href="css/featuredvideos.css" />
   </head>
   <body>
+
+    <!-- ==========================================
+       3. APPLICATION CONTAINER SHELL
+       ========================================== -->
     <div class="mobile-container">
       <div class="card">
+        
+        <!-- Platform Branding Header Image -->
         <img src="assets/images/codm-logo.png" alt="Call of Duty Mobile" class="codm-logo" />
         
+        <!-- Application Hero Area -->
         <div class="header">
           <h1>CODM Test Server</h1>
           <p class="subtitle">Official Public Beta & Test Server Hub</p>
           
+          <!-- Dynamic Badge System Target Row -->
           <div id="buildBadgeContainer"></div>
           
           <div class="credits-box">
-            <span>Developed & Maintained by</span><br>
+            <span>Developed & Maintained by</span><br />
             <a href="https://www.youtube.com/channel/UCbDtYZS08VvB6luAcyn08bQ" target="_blank" class="credits-link">
               Vile Tempest @ MOB EXTRA
             </a>
@@ -47,11 +62,12 @@
           </div>
         </div>
 
+        <!-- System Last Updated Status Bar -->
         <div id="lastUpdated" class="last-updated">
-          <i class="fa-solid fa-rocket"></i>
-          Checking Server Status...
+          <i class="fa-solid fa-rocket"></i> Checking Server Status...
         </div>
 
+        <!-- Documentation Informational Box -->
         <div class="intro-box">
           <h2>Available Downloads</h2>
           <p>
@@ -62,21 +78,21 @@
               <strong>
                 <i class="fa-brands fa-apple"></i> iOS Build (Apple TestFlight)
               </strong>
-              <br>
+              <br />
               Designed for iPhone and iPad environments. Requires Apple's native TestFlight application. <em>Note: Slot capacity is limited by developer project pools.</em>
             </li>
             <li>
               <strong>
                 <i class="fa-brands fa-android"></i> Android Build (32-Bit)
               </strong>
-              <br>
+              <br />
               Legacy deployment optimized for older mobile chipsets or budget hardware configurations.
             </li>
             <li>
               <strong>
                 <i class="fa-brands fa-android"></i> Android Build (64-Bit)
               </strong>
-              <br>
+              <br />
               High-performance deployment package recommended for modern Android devices using up-to-date processors.
             </li>
           </ul>
@@ -85,11 +101,13 @@
           </p>
         </div>
 
+        <!-- Download & Security Verification Section -->
         <div class="links-wrapper">
           <div id="linksContainer">
             <div class="disclaimer">Loading official download links...</div>
           </div>
 
+          <!-- Direct In-App Browser Workaround Box -->
           <div class="instructions-box">
             <h3 class="instructions-title">
               <i class="fa-solid fa-circle-info"></i> How to use the links:
@@ -102,12 +120,14 @@
             </p>
           </div>
 
+          <!-- Dynamic Overlay Verification Node Window -->
           <div id="verifyOverlay" class="verify-overlay">
             <div class="verify-box">
               <h2>Verification Required</h2>
               <p class="verify-text">
                 To protect our server links from automated bots, please enter the required verification code. If you do not have the code yet, you can discover it inside the video walkthrough source provided below. Thank you for helping keep our community access stable!
               </p>
+              
               <input type="text" id="verifyCode" placeholder="Enter verification code" />
               
               <a id="videoSource" target="_blank">
@@ -123,6 +143,7 @@
           </div>
         </div>
 
+        <!-- General Platform Legal Disclaimer -->
         <div class="disclaimer">
           <h2>Disclaimer</h2>
           <p>
@@ -136,24 +157,57 @@
           </p>
         </div>
         
+        <!-- Media Grid Injection Node Row -->
         <div id="featuredVideosSection"></div>
         
+        <!-- Cross-Channel Partner Image Group Grid -->
         <div class="logo-group">
-          <img src="assets/images/MOBMundane.png" alt="MOB Mundane Logo" class="site-logo" />
-          <img src="assets/images/VileTempestOfficial.png" alt="Vile Tempest Official Logo" class="site-logo" />
-          <img src="assets/images/InfreeniteMOBSolutions.png" alt="Infreenite MOB Solutions Logo" class="site-logo" />
-        </div>
-       
-        <div class="footer">
-          Powered by 
+          <!-- MOB Mundane Channel Navigation -->
+          <a href="https://www.youtube.com/channel/UCy94xzTQg2fTBQz4LD9ZBoA" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/MOBMundane.png" alt="MOB Mundane Logo" class="site-logo" />
+          </a>
+        
+          <!-- Vile Tempest Channel Navigation -->
           <a href="https://www.youtube.com/channel/UCbDtYZS08VvB6luAcyn08bQ" target="_blank" rel="noopener noreferrer">
-            <strong>Vile Tempest</strong>
+            <img src="assets/images/VileTempestOfficial.png" alt="Vile Tempest Official Logo" class="site-logo" />
+          </a>
+        
+          <!-- MOB Solutions Channel Navigation -->
+          <a href="https://www.youtube.com/channel/UCjUlbQgLin9oQPiyG6l4z-g" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/InfreeniteMOBSolutions.png" alt="Infreenite MOB Solutions Logo" class="site-logo" />
           </a>
         </div>
+      
+        <!-- Premium Site Footer Architecture -->
+        <footer class="site-footer">
+          <div class="footer-links">
+            <a href="legal.html" class="footer-nav-item">Privacy Policy</a>
+            <span class="footer-divider">•</span>
+            <a href="legal.html" class="footer-nav-item">Terms of Service</a>
+          <!-- 
+            <span class="footer-divider">•</span>
+            <a href="mailto:support@mobextra.com" class="footer-nav-item">Contact</a>
+          -->
+        </div>
         
+          <div class="footer-copyright">
+            &copy; 2026 <span class="brand-text">MOB EXTRA</span>. All Rights Reserved.
+          </div>
+         
+          <div class="footer-powered">
+            Powered by 
+            <a href="https://www.youtube.com/channel/UCbDtYZS08VvB6luAcyn08bQ" target="_blank" rel="noopener noreferrer" class="credit-link">
+              <strong>Vile Tempestl</strong>
+            </a>
+          </div>
+        </footer>
+
       </div>
     </div>
 
+    <!-- ==========================================
+       4. EXTRACTED DATA AND RUNTIME CORE LOGIC
+       ========================================== -->
     <script src="data/links.js"></script>
     <script src="data/notarobot.js"></script>
     <script src="data/featuredvideos.js"></script>
