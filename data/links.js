@@ -1,9 +1,9 @@
 const testServerData = {
     
     // 1 = Open | 0 = Closed
-    status: 1, 
+    status: 0, 
 
-    lastUpdated: "Jun 13, 2026",
+    lastUpdated: "July 13, 2026",
     
     // Server Build Information
     updateDescription: "New Season Battle Pass, Collaboration Themes & Weapons", 
