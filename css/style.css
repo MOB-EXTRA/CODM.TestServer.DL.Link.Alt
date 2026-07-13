@@ -425,6 +425,32 @@ button.btn-locked:hover {
     border-radius: 999px;
 }
 
+/* Inline Verification Code Rotation Alert Box */
+.code-expiry-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: rgba(239, 68, 68, 0.10); /* Deep crimson transparent tint */
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    margin: 0 0 16px 0; /* Creates perfect separation before the input field */
+    display: flex;
+    align-items: flex-start; /* Keeps icon anchored beautifully on line-wrap */
+    text-align: left; /* Clean left alignment for easy reading */
+    gap: 10px;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Red video play emblem icon style alignment overrides */
+.code-expiry-note i {
+    color: var(--danger);
+    font-size: 13px;
+    margin-top: 2px; /* Perfect vertical alignment with the first line of text */
+    flex-shrink: 0; /* Prevents the icon from shrinking on small devices */
+}
+
+
 /* ==========================================================================
    7. SYSTEM LOAD & STATE MESSAGE WRAPPERS
    ========================================================================== */
