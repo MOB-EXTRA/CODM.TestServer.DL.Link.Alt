@@ -151,7 +151,9 @@ function createYTPlayer(videoId) {
             'playsinline': 1,
             'controls': 1,
             'autoplay': 0,
-            'rel': 0
+            'rel': 0,
+            'enablejsapi': 1,               // 🌟 Tells YouTube to listen to tracking API events
+            'origin': window.location.origin // 🌟 Passes your website's domain securely to verify the session
         },
         events: {
             'onReady': function(e) {
@@ -291,7 +293,9 @@ function initFeaturedPlayers() {
                 'playsinline': 1,
                 'controls': 1,
                 'autoplay': 0,
-                'rel': 0
+                'rel': 0,
+                'enablejsapi': 1,               // 🌟 Tells YouTube to listen to tracking API events
+                'origin': window.location.origin // 🌟 Passes your website's domain securely to verify the session
             },
             events: {
                 'onReady': function(e) {

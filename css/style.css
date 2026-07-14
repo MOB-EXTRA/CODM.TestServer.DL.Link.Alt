@@ -506,7 +506,7 @@ button.btn-locked:hover {
 
 /* API Fallback State: Server closed distribution active */
 .server-closed {
-    margin: 24px;
+    margin: 24px 0; /* Updated: 24px top/bottom, 0 left/right to align perfectly */
     padding: 32px 24px;
     background: linear-gradient(180deg, rgba(239, 68, 68, 0.1) 0%, rgba(10, 10, 10, 0.6) 100%), #141414;
     border: 1px solid rgba(239, 68, 68, 0.25);
@@ -520,6 +520,7 @@ button.btn-locked:hover {
     align-items: center;
     justify-content: center;
 }
+
 
 .server-closed i {
     font-size: 36px;
