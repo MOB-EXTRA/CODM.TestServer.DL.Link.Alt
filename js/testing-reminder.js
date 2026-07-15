@@ -44,7 +44,7 @@
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </span>
                     <span style="letter-spacing: 0.1px !important; white-space: nowrap !important;">
-                        <strong>PREVIEW HUB:</strong> Staging site (updates may contain bugs).
+                        <strong>PREVIEW HUB:</strong> Staging site (updates may contain bugs).  Visit
                     </span>
                 </div>
                 <a id="testing-site-main-btn" href="${MAIN_SITE_URL}" target="_blank" style="
