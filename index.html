@@ -64,6 +64,37 @@
     
     <link rel="stylesheet" href="site-status/maintenance.css" />
 
+    <!-- ======================================================================
+         🔔 ONESIGNAL CUSTOM WEB PUSH ALERTS
+         ====================================================================== -->
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "4b75140a-e41f-40c1-8181-32ee5635f953", // Your exact App ID
+          allowLocalhostAsSecureOrigin: true,
+          
+          // Directs this page to find its service worker in this exact folder repository
+          serviceWorkerPath: "OneSignalSDKWorker.js", 
+
+          notifyButton: {
+            enable: true,
+            size: 'medium',
+            theme: 'dark',
+            position: 'bottom-right',
+            text: {
+              'tip.state.unsubscribed': 'Subscribe to CODM Test Server Alerts',
+              'tip.state.subscribed': "You're subscribed!",
+              'dialog.main.title': 'CODM Alerts',
+              'dialog.main.button.subscribe': 'SUBSCRIBE',
+              'dialog.main.button.unsubscribe': 'UNSUBSCRIBE'
+            }
+          }
+        });
+      });
+    </script>
+
   </head>
   <body>
 

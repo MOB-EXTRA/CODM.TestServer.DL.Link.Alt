@@ -394,3 +394,17 @@
     text-decoration: underline;
     opacity: 0.9;
 }
+
+/* ======================================================================
+   🔔 ONESIGNAL GLOBAL OVERRIDES (Keeps alerts rendering ABOVE maintenance)
+   ====================================================================== */
+#onesignal-bell-container,
+.onesignal-bell-container,
+#onesignal-slidedown-container,
+.onesignal-slidedown-container,
+#onesignal-popover-container,
+.onesignal-popover-container,
+.onesignal-reset {
+    z-index: 2147483647 !important; /* Forces elements above the 999999 overlay */
+}
+
