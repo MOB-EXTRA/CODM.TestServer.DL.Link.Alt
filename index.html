@@ -80,7 +80,7 @@
 
           notifyButton: {
             enable: true,
-            size: 'medium',
+            size: 'large',
             theme: 'dark',
             position: 'bottom-right',
             text: {
@@ -94,7 +94,16 @@
         });
       });
     </script> 
-    
+    <style>
+    /* Force the OneSignal bell to stay on top of all other elements */
+.onesignal-bell-launcher {
+    z-index: 99999 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+    </style>
 
   </head>
   <body>
@@ -110,7 +119,7 @@
         
         <!-- Application Hero Area -->
         <div class="header">
-          <h1>CODM Test Server</h1>
+          <h1>CODM Test Server (Test Site)</h1>
           <p class="subtitle">Official Public Beta & Test Server Hub</p>
           
           <!-- Dynamic Badge System Target Row -->
@@ -310,9 +319,9 @@
     
     <script src="js/script.js"></script>
     <script src="site-status/maintenance.js"></script>
-
+    <!--
    <script src="js/testing-reminder.js"></script>
-    
+    -->
   </body>
 </html>
  
