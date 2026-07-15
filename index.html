@@ -50,7 +50,11 @@
         await OneSignal.init({
           appId: "4b75140a-e41f-40c1-8181-32ee5635f953",
           allowLocalhostAsSecureOrigin: true,
-          serviceWorkerPath: "OneSignalSDKWorker-Test.js",
+          serviceWorkerPath: "OneSignalSDKWorker.js",
+          serviceWorkerParam: {
+            scope: "/VT-CODM.TestServerDLinkAlt/"
+          }
+       
           notifyButton: {
             enable: true,
             size: 'large',
