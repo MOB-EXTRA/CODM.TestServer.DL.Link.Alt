@@ -65,18 +65,20 @@
     <link rel="stylesheet" href="site-status/maintenance.css" />
 
     <!-- ======================================================================
-         🔔 ONESIGNAL CUSTOM WEB PUSH ALERTS
+         🔔 ONESIGNAL CUSTOM WEB PUSH ALERTS (TESTING CONFIGURATION)
          ====================================================================== -->
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
     <script>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
       OneSignalDeferred.push(async function(OneSignal) {
         await OneSignal.init({
-          appId: "4b75140a-e41f-40c1-8181-32ee5635f953", // Your exact App ID
+          appId: "4b75140a-e41f-40c1-8181-32ee5635f953",
           allowLocalhostAsSecureOrigin: true,
           
-          // Directs this page to find its service worker in this exact folder repository
+          // 🔧 TEST CONFIGURATION
+          // We use "./" scope for testing on GitHub Pages sub-directories.
           serviceWorkerPath: "OneSignalSDKWorker.js", 
+          serviceWorkerParam: { scope: "./" },
 
           notifyButton: {
             enable: true,
@@ -94,6 +96,14 @@
         });
       });
     </script>
+    
+    <!-- 
+      ⚠️ IMPORTANT NOTE FOR MAIN SITE DEPLOYMENT:
+      When you are ready to move this to your MAIN site (mob-extra.github.io), 
+      you MUST delete the line: 'serviceWorkerParam: { scope: "./" },'
+      and ensure 'OneSignalSDKWorker.js' is located in the root of the main repository.
+    -->
+
 
   </head>
   <body>
