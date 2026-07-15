@@ -67,21 +67,16 @@
     <!-- ======================================================================
          🔔 ONESIGNAL CUSTOM WEB PUSH ALERTS (SWITCHABLE CONFIG)
          ====================================================================== -->
-    <!--
     
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "4b75140a-e41f-40c1-8181-32ee5635f953",
+     
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "4b75140a-e41f-40c1-8181-32ee5635f953",
           allowLocalhostAsSecureOrigin: true,
-          
-          // --- TOGGLE FOR TEST VS MAIN ---
-          // serviceWorkerPath: "OneSignalSDKWorker.js", // MAIN SITE: Use this line
-          serviceWorkerPath: "OneSignalSDKWorker-Test.js", // TEST SITE: Use this line
-          // ---------------------------------
+           serviceWorkerPath: "OneSignalSDKWorker.js",
 
           notifyButton: {
             enable: true,
@@ -98,17 +93,7 @@
           }
         });
       });
-    </script> -->
-    
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "4b75140a-e41f-40c1-8181-32ee5635f953",
-    });
-  });
-</script>
+    </script> 
     
 
   </head>
